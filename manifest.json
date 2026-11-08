@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix 日英デュアル字幕 & 広告・スキップ快適化",
+  "version": "1.0.0",
+  "description": "Netflix動画に日本語・英語の同時字幕を表示し、広告再生時の自動ミュート・倍速化・プロモ非表示・イントロ自動スキップを提供します。",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "*://*.netflix.com/*",
+    "*://*.nflxvideo.net/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ad_promo_rules",
+        "enabled": true,
+        "path": "rules/ad_promo_rules.json"
+      }
+    ]
+  },
+  "action": {
+    "default_title": "Netflix 日英字幕 & 広告ブロック設定",
+    "default_popup": "src/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": [
+        "src/subtitle-parser.js",
+        "src/ad-blocker.js",
+        "src/content.js"
+      ],
+      "css": ["src/content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/injected-interceptor.js"],
+      "matches": ["*://*.netflix.com/*"]
+    }
+  ]
+}

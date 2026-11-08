@@ -1,0 +1,79 @@
+/* Netflix Dual Subtitles Overlay & Ad Status Badge */
+
+#nf-dual-subs-container {
+  position: fixed;
+  left: 50%;
+  bottom: 9%;
+  transform: translateX(-50%);
+  z-index: 2147483646;
+  width: 84%;
+  max-width: 1100px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui, -apple-system, sans-serif;
+  transition: opacity 0.15s ease;
+}
+
+#nf-dual-subs-container.nf-dual-subs-hidden {
+  display: none !important;
+}
+
+.nf-dual-subs-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background-color: var(--nf-subs-bg, rgba(10, 12, 16, 0.75));
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
+  user-select: text;
+}
+
+.nf-dual-subs-top {
+  color: #ffffff;
+  font-size: var(--nf-subs-primary-size, 26px);
+  font-weight: 700;
+  line-height: 1.35;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  white-space: pre-wrap;
+}
+
+.nf-dual-subs-bottom {
+  color: #ffd966;
+  font-size: var(--nf-subs-secondary-size, 20px);
+  font-weight: 600;
+  line-height: 1.35;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  white-space: pre-wrap;
+}
+
+/* Ad-Break Muted/Fast-Forward Status Toast */
+#nf-ad-status-badge {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 2147483647;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(229, 9, 20, 0.9);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  display: none;
+}
+
+#nf-ad-status-badge.active {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

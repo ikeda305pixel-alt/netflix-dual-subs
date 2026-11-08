@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||ichnaea.netflix.com/cl2/ad*",
+      "initiatorDomains": ["netflix.com", "www.netflix.com"],
+      "resourceTypes": ["xmlhttprequest", "ping", "beacon"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||customerevents.netflix.com/*adImpression*",
+      "initiatorDomains": ["netflix.com", "www.netflix.com"],
+      "resourceTypes": ["xmlhttprequest", "ping", "beacon"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||doubleclick.net/*",
+      "initiatorDomains": ["netflix.com", "www.netflix.com"],
+      "resourceTypes": ["xmlhttprequest", "script", "image", "sub_frame", "ping"]
+    }
+  }
+]

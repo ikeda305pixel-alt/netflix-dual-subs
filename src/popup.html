@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix 日英デュアル字幕 & 広告ブロック</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <span class="badge-n">N</span>
+      <div>
+        <h1>Netflix 日英字幕 & 広告ブロック</h1>
+        <p class="subtitle">Dual Subtitles & Ad-Break Controller</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Status Card -->
+    <section class="status-card">
+      <div class="stat-item">
+        <span class="stat-label">日本語字幕</span>
+        <span id="stat-ja" class="stat-value">待機中</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">英語字幕</span>
+        <span id="stat-en" class="stat-value">待機中</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">広告処理</span>
+        <span id="stat-ads" class="stat-value">0 件</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">スキップ</span>
+        <span id="stat-skips" class="stat-value">0 回</span>
+      </div>
+    </section>
+
+    <!-- Subtitle Controls -->
+    <section class="card">
+      <h2>字幕設定 (Dual Subtitles)</h2>
+
+      <label class="row">
+        <span>日英デュアル字幕を有効化</span>
+        <input type="checkbox" id="dualSubsEnabled" checked />
+      </label>
+
+      <label class="row">
+        <span>上下の順序を入れ替え (英語を上 / 日本語を下)</span>
+        <input type="checkbox" id="swapOrder" />
+      </label>
+
+      <div class="slider-row">
+        <div class="slider-header">
+          <span>メイン字幕サイズ (上段)</span>
+          <span id="primaryFontSizeVal">26px</span>
+        </div>
+        <input type="range" id="primaryFontSize" min="16" max="42" step="1" value="26" />
+      </div>
+
+      <div class="slider-row">
+        <div class="slider-header">
+          <span>サブ字幕サイズ (下段)</span>
+          <span id="secondaryFontSizeVal">20px</span>
+        </div>
+        <input type="range" id="secondaryFontSize" min="14" max="36" step="1" value="20" />
+      </div>
+
+      <div class="slider-row">
+        <div class="slider-header">
+          <span>背景の不透明度</span>
+          <span id="bgOpacityVal">75%</span>
+        </div>
+        <input type="range" id="bgOpacity" min="0" max="1" step="0.05" value="0.75" />
+      </div>
+
+      <div class="slider-row">
+        <div class="slider-header">
+          <span>字幕タイミング補正 (Offset)</span>
+          <span id="offsetMsVal">0 ms</span>
+        </div>
+        <input type="range" id="offsetMs" min="-5000" max="5000" step="250" value="0" />
+      </div>
+    </section>
+
+    <!-- Ad Block & Auto Skip Controls -->
+    <section class="card">
+      <h2>広告ブロック & 自動スキップ</h2>
+
+      <label class="row">
+        <span>広告ブロック・制御を有効化</span>
+        <input type="checkbox" id="adBlockEnabled" checked />
+      </label>
+
+      <label class="row">
+        <span>広告再生中は自動で音声をミュート</span>
+        <input type="checkbox" id="adAutoMute" checked />
+      </label>
+
+      <div class="slider-row">
+        <div class="slider-header">
+          <span>広告再生時の倍速スキップ速度</span>
+          <span id="adFastForwardRateVal">4.0x</span>
+        </div>
+        <input type="range" id="adFastForwardRate" min="1" max="8" step="0.5" value="4.0" />
+      </div>
+
+      <label class="row">
+        <span>プロモーション枠・一時停止広告を非表示</span>
+        <input type="checkbox" id="hidePromoOverlays" checked />
+      </label>
+
+      <label class="row">
+        <span>イントロ・前回のあらすじを自動スキップ</span>
+        <input type="checkbox" id="autoSkipIntro" checked />
+      </label>
+
+      <label class="row">
+        <span>次のエピソードへ自動で進む</span>
+        <input type="checkbox" id="autoNextEpisode" />
+      </label>
+    </section>
+
+    <footer class="footer">
+      <span>ショートカット: <code>Alt+D</code> ON/OFF / <code>Alt+S</code> 順序入替 / <code>[</code> <code>]</code> タイミング調整</span>
+    </footer>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

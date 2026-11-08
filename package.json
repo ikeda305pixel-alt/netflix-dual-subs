@@ -1,0 +1,12 @@
+{
+  "name": "netflix-dual-subs",
+  "version": "1.0.0",
+  "description": "Netflix Japanese-English Dual Subtitles & Ad-Break / Intro Controller (Chrome Extension Manifest V3)",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
